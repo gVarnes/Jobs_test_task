@@ -11,9 +11,9 @@
 	}
 
 	.subtitle{
-		@apply font-bold text-3xl leading-9 relative mb-6 pb-3 shrink-0
-		md:static md:after:w-full md:pb-0 md:mb-0
-		after:content-[''] after:block after:h-[2px] after:w-screen after:bg-txtHeading after:absolute after:bottom-0;
+		@apply font-bold text-3xl leading-9 relative mb-6 pb-3 shrink-0 w-full text-start
+		md:static md:after:w-full md:pb-0 md:mb-0 md:w-auto
+		after:content-[''] after:block after:h-[2px] after:w-full after:bg-txtHeading after:absolute after:bottom-0;
 	}
 
 	.controls{
@@ -40,7 +40,7 @@
 }
 
 .contacts-title{
-	@apply relative mb-4 pb-2 font-bold text-3xl
+	@apply relative mb-4 pb-2 font-bold text-3xl self-start w-full
 	after:content-[''] after:block after:h-[2px] after:w-full after:bg-txtHeading after:absolute after:bottom-0
 	md:hidden;
 }
@@ -106,4 +106,10 @@
 	@apply py-4 bg-txtPrimary w-[220px] flex items-center justify-center rounded-lg text-txtHeading cursor-default font-bold;
 }
 
-
+.button-back{
+	@apply hidden text-left max-w-[1520px] px-4 mx-auto text-xs md:block;
+	
+	& button{
+		@apply gap-5 text-txtHeading bg-opacity-[0.14] px-6 uppercase;
+	}
+}

@@ -1,20 +1,22 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./index.module.scss";
+import contacts from "./Contacts.png";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import ReactMarkdown from "react-markdown";
 import parse, { domToReact } from "html-react-parser";
-import contacts from "./Contacts.png";
-
 import cx from "classnames";
 
-import { FaShareAlt, FaRegBookmark } from "react-icons/fa";
-import Button from "../../components/Button/component";
-import JobDate from "../../components/JobDate/component";
+import { FaShareAlt, FaRegBookmark, FaChevronLeft } from "react-icons/fa";
+import Button from "../../components/Button";
+import JobDate from "../../components/JobDate";
 
 const JobDetail = () => {
   const [job, setJob] = useState({});
   const { id } = useParams();
   const idRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("https://api.json-generator.com/templates/ZM1r0eic3XEy/data", {
@@ -27,14 +29,16 @@ const JobDetail = () => {
   }, []);
 
   useEffect(() => {
-    console.log(idRef.current);
-    console.log(job);
     const id = document.querySelector("id");
     idRef.current.innerText = job[0]?.description;
   }, [job]);
 
+  const backToList = () => {
+    navigate("/");
+  };
+
   return (
-    <div className="bg-white text-txtHeading pt-6 md:pt-14">
+    <div className="bg-white text-txtHeading pt-6 pb-9 md:pt-14 md:pb-40">
       <div className="container">
         <div className={styles.body}>
           <div className={styles.detail}>
@@ -93,20 +97,28 @@ const JobDetail = () => {
             <div className={styles.additional}>
               <h3 className={styles["additional-title"]}>Attached images</h3>
               <div className={styles["additional-images"]}>
-                {job[0]?.pictures.map((pic) => (
-                  <img src={pic} className={styles["additional-img"]} />
+                {job[0]?.pictures.map((pic, idx) => (
+                  <img
+                    src={pic}
+                    className={styles["additional-img"]}
+                    key={pic + idx}
+                  />
                 ))}
               </div>
             </div>
           </div>
           <div className={styles.contacts}>
             <h3 className={styles["contacts-title"]}>Contacts</h3>
-
             <div className={`${styles["contacts-map"]}`}>
               <img src={contacts} alt="" />
             </div>
           </div>
         </div>
+      </div>
+      <div className={styles["button-back"]}>
+        <Button onClick={backToList}>
+          <FaChevronLeft /> RETURN TO JOB BOARD
+        </Button>
       </div>
     </div>
   );
