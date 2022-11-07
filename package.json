@@ -31,6 +31,9 @@
   "resolutions": {
     "resolve-url-loader": "5.0.0"
   },
+  "browser": {
+    "fs": false
+  },
   "browserslist": {
     "production": [
       ">0.2%",
