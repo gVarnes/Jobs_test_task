@@ -1,0 +1,65 @@
+.item{
+	@apply bg-white flex gap-4 px-4 pt-4 pb-6 text-left justify-between flex-col rounded-lg shadow-my-shadow;
+
+	@media (min-width: theme('screens.md')) {
+		@apply flex-row gap-8 py-6 px-4 ;
+	  }
+}
+
+.content{
+	@apply flex  xl:max-w-[1170px] order-2 gap-4;
+	@media (min-width: theme('screens.md')) {
+		@apply gap-[26px];
+	  }
+}	
+
+.image{
+	@apply basis-16 shrink-0 h-16 rounded-[50%] bg-red-800 overflow-hidden;
+
+	@media(min-width: theme('screens.md')){
+		@apply basis-20 shrink-0 h-20
+	}
+}
+
+.body{
+	@apply w-3/4
+}
+
+.title{
+	@apply font-bold text-lg leading-[25px] text-txtHeading mb-2 cursor-pointer;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
+	text-overflow: ellipsis;
+	overflow: hidden;
+
+	@media(min-width: theme('screens.md')){
+		@apply text-xl leading-[25px];
+	}
+
+}
+.info{
+	@apply mb-2 leading-[25px]
+}
+.address{
+	@apply leading-[25px] flex gap-2 items-center
+}
+
+.controls{
+	@apply gap-8 items-center order-1;
+		 @media (min-width: theme('screens.md')) {
+			@apply basis-[138px] shrink-0 order-2;
+		  }
+}
+
+.save{
+	@apply h-full flex flex-col justify-between items-end text-right 
+}
+
+.icon{
+	@apply hidden;
+	@media (min-width: theme('screens.md')) {
+		@apply block;
+	  }
+}
+
