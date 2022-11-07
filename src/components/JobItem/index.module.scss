@@ -9,7 +9,7 @@
 .content{
 	@apply flex  xl:max-w-[1170px] order-2 gap-4;
 	@media (min-width: theme('screens.md')) {
-		@apply gap-[26px];
+		@apply gap-7;
 	  }
 }	
 
@@ -17,7 +17,7 @@
 	@apply basis-16 shrink-0 h-16 rounded-[50%] bg-red-800 overflow-hidden;
 
 	@media(min-width: theme('screens.md')){
-		@apply basis-20 shrink-0 h-20
+		@apply basis-20 shrink-0 h-20;
 	}
 }
 
@@ -34,7 +34,7 @@
 	overflow: hidden;
 
 	@media(min-width: theme('screens.md')){
-		@apply text-xl leading-[25px];
+		@apply leading-[25px] text-xl ;
 	}
 
 }

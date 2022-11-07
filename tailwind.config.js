@@ -14,7 +14,7 @@ module.exports = {
         // xl: "1240px",
         // "2xl": "1430px",
       },
-      padding: "15px",
+      // padding: "15px",
     },
     extend: {
       colors: {
